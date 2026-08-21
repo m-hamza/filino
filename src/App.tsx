@@ -14,6 +14,7 @@ import { BlogPage } from "./modules/blog/BlogPage";
 import { ArticlePage } from "./modules/blog/ArticlePage";
 import { PanelPage, type PanelTabId } from "./modules/panel/PanelPage";
 import { AboutPage, ContactPage, FaqPage, NotFoundPage } from "./modules/pages/StaticPages";
+import { DevPage } from "./modules/pages/DevPage";
 
 const TITLES: Record<string, string> = {
   home: "فایلینو | مارکت محصولات دیجیتال وردپرس",
@@ -25,6 +26,7 @@ const TITLES: Record<string, string> = {
   about: "درباره ما | فایلینو",
   contact: "تماس با ما | فایلینو",
   faq: "سوالات متداول | فایلینو",
+  dev: "کد قالب وردپرس | فایلینو",
 };
 
 const PANEL_TABS: PanelTabId[] = ["dashboard", "downloads", "orders", "tickets", "settings"];
@@ -47,6 +49,7 @@ function Router() {
     case "about": return <AboutPage />;
     case "contact": return <ContactPage />;
     case "faq": return <FaqPage />;
+    case "dev": return <DevPage />;
     default: return <NotFoundPage />;
   }
 }

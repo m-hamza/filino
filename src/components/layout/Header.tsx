@@ -26,6 +26,7 @@ const NAV = [
   { to: "shop", label: "فروشگاه", key: "shop" },
   { to: "blog", label: "مقالات", key: "blog" },
   { to: "panel", label: "پنل کاربری", key: "panel" },
+  { to: "dev", label: "کد قالب", key: "dev" },
   { to: "contact", label: "تماس با ما", key: "contact" },
 ];
 
