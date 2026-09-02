@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* ---------- توکن‌های هویت بصری فایلینو ---------- */
+@theme {
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Lalezar", "Vazirmatn", sans-serif;
+
+  /* شب: زمینه‌های نفتی تیره */
+  --color-night-950: #060e11;
+  --color-night-900: #0a161b;
+  --color-night-850: #0d1c22;
+  --color-night-800: #12242c;
+  --color-night-700: #1a333d;
+  --color-night-600: #274a56;
+  --color-night-500: #3a6472;
+
+  /* مه: متن‌ها */
+  --color-mist-100: #eef6f4;
+  --color-mist-200: #d9e7e4;
+  --color-mist-300: #b7ccc8;
+  --color-mist-400: #8faba7;
+  --color-mist-500: #6e8b89;
+
+  /* زعفرانی: اکشن اصلی */
+  --color-saffron-200: #ffe6b3;
+  --color-saffron-300: #ffd58a;
+  --color-saffron-400: #f8bc5b;
+  --color-saffron-500: #efa33a;
+  --color-saffron-600: #d98823;
+  --color-saffron-700: #b26c17;
+
+  /* نعنایی: موفقیت / ثانویه */
+  --color-mint-300: #8fe9d6;
+  --color-mint-400: #52d8bc;
+  --color-mint-500: #34c2a4;
+  --color-mint-600: #23997f;
+
+  /* مرجانی: تخفیف و هشدار */
+  --color-coral-300: #ffb3a0;
+  --color-coral-400: #ff8a6e;
+  --color-coral-500: #f0654a;
+  --color-coral-600: #d14a32;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-night-950 text-mist-100 font-sans antialiased;
+  background-image:
+    radial-gradient(900px 480px at 85% -120px, rgba(239, 163, 58, 0.09), transparent 65%),
+    radial-gradient(1000px 600px at -10% 20%, rgba(52, 194, 164, 0.07), transparent 60%),
+    radial-gradient(700px 500px at 60% 110%, rgba(240, 101, 74, 0.05), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* بافت نویز سراسری برای عمق بصری */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: #efa33a;
+  color: #0a161b;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #274a56 transparent;
+}
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: #274a56; border-radius: 99px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ---------- الگوها ---------- */
+.bg-blueprint {
+  background-image:
+    linear-gradient(rgba(143, 171, 167, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 171, 167, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+.bg-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(239, 163, 58, 0.07) 0 14px,
+    transparent 14px 28px
+  );
+}
+.bg-dots {
+  background-image: radial-gradient(rgba(143, 171, 167, 0.14) 1px, transparent 1.4px);
+  background-size: 18px 18px;
+}
+
+/* دکمه‌ی امضا: گوشه‌های برش‌خورده */
+.cut {
+  clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 13px, 100% 100%, 13px 100%, 0 calc(100% - 13px));
+}
+.cut-sm {
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+}
+
+/* ---------- حرکت‌ها ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-15px) rotate(0.6deg); }
+}
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+@keyframes tickerIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes slideStart {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+@keyframes stripes {
+  from { background-position: 0 0; }
+  to { background-position: 28px 0; }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.anim-float { animation: float 6.5s ease-in-out infinite; }
+.anim-float-soft { animation: floatSoft 5s ease-in-out infinite; }
+.anim-ticker-in { animation: tickerIn 0.55s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+.anim-pop-in { animation: popIn 0.4s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+.anim-slide-start { animation: slideStart 0.45s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+.anim-breathe { animation: breathe 3.2s ease-in-out infinite; }
+.anim-shake { animation: shake 0.35s ease-in-out; }
+.anim-blink { animation: blink 1.4s ease-in-out infinite; }
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 34s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+.progress-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.22) 0 10px,
+    transparent 10px 20px
+  );
+  background-size: 28px 28px;
+  animation: stripes 0.7s linear infinite;
+}
+
+/* ---------- ظهور هنگام اسکرول ---------- */
+.rv {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.rv.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* کارت محصولات */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 0.35s, border-color 0.35s;
+}
+.card-lift:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.55);
+}
+
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition: background-size 0.35s ease;
+}
+.link-underline:hover { background-size: 100% 1.5px; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }

@@ -1,0 +1,70 @@
+/*
+Theme Name: Filino | فایلینو
+Theme URI: https://filino.ir/themes/filino
+Author: Filino Team
+Author URI: https://filino.ir
+Description: قالب ماژولار فروشگاهی برای محصولات دیجیتال؛ راست‌چین، سبک و سازگار کامل با ووکامرس. دارای سیستم تحویل خودکار فایل، لایسنس‌گذاری، پنل کاربری اختصاصی و بخش‌های کامپوننت‌شده برای افزایش سرعت.
+Version: 2.4.0
+Requires at least: 6.2
+Tested up to: 6.7
+Requires PHP: 7.4
+Requires Plugins: woocommerce
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: filino
+Tags: e-commerce, rtl-language-support, custom-menu, custom-logo, translation-ready, threaded-comments
+*/
+
+/* ------------------------------------------------------------------
+   توکن‌های طراحی فایلینو — هر ماژول قالب فقط از این متغیرها رنگ می‌گیرد
+   ------------------------------------------------------------------ */
+:root {
+  /* شب: زمینه‌های نفتی تیره */
+  --fl-night-950: #060e11;
+  --fl-night-900: #0a161b;
+  --fl-night-850: #0d1c22;
+  --fl-night-800: #12242c;
+  --fl-night-700: #1a333d;
+  --fl-night-600: #274a56;
+
+  /* مه: متن‌ها */
+  --fl-mist-100: #eef6f4;
+  --fl-mist-300: #b7ccc8;
+  --fl-mist-400: #8faba7;
+  --fl-mist-500: #6e8b89;
+
+  /* زعفرانی: اکشن اصلی | نعنایی: موفقیت | مرجانی: تخفیف */
+  --fl-saffron: #efa33a;
+  --fl-saffron-soft: #f8bc5b;
+  --fl-mint: #34c2a4;
+  --fl-coral: #f0654a;
+
+  --fl-font-body: "Vazirmatn", Tahoma, sans-serif;
+  --fl-font-display: "Lalezar", "Vazirmatn", sans-serif;
+  --fl-radius: 14px;
+  --fl-shadow: 0 24px 48px -18px rgba(0, 0, 0, .55);
+}
+
+body {
+  background-color: var(--fl-night-950);
+  color: var(--fl-mist-100);
+  font-family: var(--fl-font-body);
+}
+
+/* گوشه‌های برش‌خورده — امضای بصری دکمه‌های فایلینو */
+.fl-cut {
+  clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 13px, 100% 100%, 13px 100%, 0 calc(100% - 13px));
+}
+
+.fl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--fl-saffron);
+  color: var(--fl-night-950);
+  font-weight: 800;
+  padding: .8rem 1.75rem;
+  transition: background .3s, transform .2s;
+}
+.fl-btn:hover { background: var(--fl-saffron-soft); }
+.fl-btn:active { transform: scale(.97); }
